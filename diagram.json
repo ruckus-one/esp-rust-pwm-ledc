@@ -1,0 +1,166 @@
+{
+    "version": 1,
+    "author": "Sergio Gasquez Arcos",
+    "editor": "wokwi",
+    "parts": [
+        {
+            "type": "board-esp32-c3-devkitm-1",
+            "id": "esp",
+            "top": 0,
+            "left": 0.67,
+            "attrs": {
+                "builder": "rust-std-esp"
+            }
+        },
+        {
+            "type": "wokwi-resistor",
+            "id": "r1",
+            "top": 42,
+            "left": 123.26,
+            "attrs": {
+                "value": "1000"
+            }
+        },
+        {
+            "type": "wokwi-resistor",
+            "id": "r2",
+            "top": 72,
+            "left": 123.26,
+            "attrs": {
+                "value": "1000"
+            }
+        },
+        {
+            "type": "wokwi-resistor",
+            "id": "r3",
+            "top": 90,
+            "left": 123.26,
+            "attrs": {
+                "value": "1000"
+            }
+        },
+        {
+            "type": "wokwi-led",
+            "id": "ledr",
+            "top": 74.07,
+            "left": 194.99,
+            "attrs": {
+                "color": "red",
+                "flip": "1"
+            }
+        },
+        {
+            "type": "wokwi-led",
+            "id": "ledg",
+            "top": 94.07,
+            "left": 214.99,
+            "attrs": {
+                "color": "green",
+                "flip": "1"
+            }
+        },
+        {
+            "type": "wokwi-led",
+            "id": "ledb",
+            "top": 54.07,
+            "left": 174.99,
+            "attrs": {
+                "color": "blue",
+                "flip": "1"
+            }
+        }
+    ],
+    "connections": [
+        [
+            "esp:TX",
+            "$serialMonitor:RX",
+            "",
+            []
+        ],
+        [
+            "esp:RX",
+            "$serialMonitor:TX",
+            "",
+            []
+        ],
+        [
+            "ledr:A",
+            "r1:2",
+            "green",
+            [
+                "v0"
+            ]
+        ],
+        [
+            "ledg:A",
+            "r2:2",
+            "green",
+            [
+                "v0"
+            ]
+        ],
+        [
+            "ledb:A",
+            "r3:2",
+            "green",
+            [
+                "v0"
+            ]
+        ],
+        [
+            "esp:2",
+            "r1:1",
+            "green",
+            [
+                "h0"
+            ]
+        ],
+        [
+            "esp:1",
+            "r2:1",
+            "green",
+            [
+                "h0"
+            ]
+        ],
+        [
+            "esp:0",
+            "r3:1",
+            "green",
+            [
+                "h0"
+            ]
+        ],
+        [
+            "esp:GND.6",
+            "ledr:C",
+            "black",
+            [
+                "v0.8",
+                "h119.4"
+            ]
+        ],
+        [
+            "esp:GND.6",
+            "ledg:C",
+            "black",
+            [
+                "v0.8",
+                "h119.4"
+            ]
+        ],
+        [
+            "esp:GND.6",
+            "ledb:C",
+            "black",
+            [
+                "v0.8",
+                "h119.4"
+            ]
+        ]
+    ],
+    "serialMonitor": {
+        "display": "terminal"
+    }
+}
+
